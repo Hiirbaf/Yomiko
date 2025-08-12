@@ -14,7 +14,7 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v4
         with:
-          repository: "petalya/yomiko"
+          repository: "Hiirbaf/yomiko"
           fetch-depth: 0
 
       - name: Validate Gradle Wrapper
