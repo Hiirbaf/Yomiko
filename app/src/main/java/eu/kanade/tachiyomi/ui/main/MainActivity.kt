@@ -546,16 +546,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onPause() {
-        // Evita que Compose entre en suspensión profunda
         window.decorView.alpha = 1f
-
-        // Mantiene el comportamiento original de SY
         super.onPause()
-        MangaCoverMetadata.savePrefs()
     }
 
     override fun onStop() {
-        // Evita limpieza o recreación innecesaria
         ready = true
         super.onStop()
     }
