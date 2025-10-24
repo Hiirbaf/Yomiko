@@ -544,6 +544,21 @@ class MainActivity : BaseActivity() {
         const val INTENT_SEARCH_QUERY = "query"
         const val INTENT_SEARCH_FILTER = "filter"
     }
+
+    override fun onPause() {
+        // Evita que Compose entre en suspensión profunda
+        window.decorView.alpha = 1f
+
+        // Mantiene el comportamiento original de SY
+        super.onPause()
+        MangaCoverMetadata.savePrefs()
+    }
+
+    override fun onStop() {
+        // Evita limpieza o recreación innecesaria
+        ready = true
+        super.onStop()
+    }
 }
 
 // Splash screen
